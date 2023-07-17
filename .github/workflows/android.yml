@@ -8,6 +8,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           distribution: adopt
+          java-version: '17'
       - uses: android-actions/setup-android@v2
       - uses: actions/setup-go@v4
       - run: |
