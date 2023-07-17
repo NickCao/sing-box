@@ -11,8 +11,12 @@ jobs:
           java-version: '17'
       - uses: android-actions/setup-android@v2
       - uses: actions/setup-go@v4
-      - run: |
+      - name: build
+        run: |
           go install golang.org/x/mobile/cmd/gomobile@latest
           go get golang.org/x/mobile/bind
           gomobile init
           go run ./cmd/internal/build_libbox
+      - uses: softprops/action-gh-release@v1
+        with:
+          files: libbox.aar
