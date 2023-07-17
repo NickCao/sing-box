@@ -67,7 +67,6 @@ func buildAndroid() {
 		"-v",
 		"-androidapi", "21",
 		"-javapkg=io.nekohasekai",
-		"-libname=box",
 	}
 	if !debugEnabled {
 		args = append(args, sharedFlags...)
