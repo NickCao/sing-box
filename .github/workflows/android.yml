@@ -1,0 +1,14 @@
+name: android
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+      - uses: android-actions/setup-android@v2
+      - uses: actions/setup-go@v4
+      - run: |
+          go install golang.org/x/mobile/cmd/gomobile@latest
+          gomobile init
+          go run ./cmd/internal/build_libbox
